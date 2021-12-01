@@ -2,7 +2,7 @@ import { Button, TextField } from "@mui/material";
 import { useRouter } from "next/router";
 import { Controller, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { setUser } from "../../store/user/UserActions";
+import { fetchUser, setUser } from "../../store/user/UserActions";
 
 const requiredRule = {
     required: "This field is required"
@@ -27,7 +27,8 @@ const UserForm: React.FC = () => {
 	});
 
     const onSubmit = (user: any) => {
-		dispatch(setUser(user));
+		// dispatch(setUser(user));
+        dispatch(fetchUser());
         router.push("/");
 	}
 

@@ -5,6 +5,21 @@ export const initialState = {
     isOnline: false
 }
 
+export const fetchUser = () => (
+    (dispatch: any) => {
+        fetch("https://jsonplaceholder.typicode.com/users/1")
+            .then(response => response.json())
+            .then(user => dispatch({
+                type: EUserActions.SET_USER,
+                payload: {
+                    username: user.username,
+                    email: user.email
+                }
+            }))
+            .catch(error => console.error(error));
+    }
+);
+
 export const setUser = (user: Record<any, any>) => ({
     type: EUserActions.SET_USER,
     payload: user
@@ -22,7 +37,7 @@ export const logoutUser = () => ({
 });
 
 export enum EUserActions {
-    SET_USER,
-    CHANGE_ONLINE_STATUS,
-    LOGOUT
+    SET_USER = "SET_USER",
+    CHANGE_ONLINE_STATUS = "CHANGE_ONLINE_STATUS",
+    LOGOUT = "LOGOUT"
 }
