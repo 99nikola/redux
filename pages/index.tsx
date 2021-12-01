@@ -1,8 +1,11 @@
 import { Button, Typography } from "@mui/material";
-import { NextPage } from "next"
+import { GetStaticProps, NextPage } from "next"
 import { useRouter } from "next/router";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import store from "../redux/store";
 import { logoutUser, selectUser } from "../redux/UserSlice";
+
 
 const Home: NextPage = () => {
 
@@ -12,7 +15,7 @@ const Home: NextPage = () => {
 
 	const handleLogout = () => {
 		dispatch(logoutUser());
-		// router.push("/login");
+		router.push("/login");
 	}
 
     return (

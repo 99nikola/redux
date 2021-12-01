@@ -5,13 +5,15 @@ export const userSlice = createSlice({
     initialState: {
         username: "",
         email: "",
-        isOnline: false
+        isOnline: false,
+        isLogged: false
     },
     reducers: {
         setUser: (state, action) => {
             state.username = action.payload.username;
             state.email = action.payload.email;
-            state.isOnline = navigator.onLine;
+            // state.isOnline = navigator.onLine;
+            state.isLogged = true;
         },
         setOnlineStatus: (state, action) => {
             state.isOnline = action.payload.isOnline;
@@ -19,6 +21,7 @@ export const userSlice = createSlice({
         logoutUser: (state) => {
             state.username = "";
             state.email = "";
+            state.isLogged = false;
             state.isOnline = false;
         }
     }
