@@ -3,17 +3,17 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/UserSlice";
 
-const Redirect: React.FC = () => {
+interface RedirectProps {
+    to: string
+}
+
+const Redirect: React.FC<RedirectProps> = (props) => {
 
     const router = useRouter();
-    const user = useSelector(selectUser);
 
     useEffect(() => {
-        if (Boolean(user.username)) 
-            return;
-
-        router.push("/login");
-    }, [user.username]);
+        router.push(props.to);
+    }, []);
 
     return <></>
 }

@@ -12,6 +12,7 @@ const Home: NextPage = () => {
 
 	const handleLogout = () => {
 		dispatch(logoutUser());
+		// router.push("/login");
 	}
 
     return (
