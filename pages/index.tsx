@@ -1,15 +1,13 @@
 import { Button, Typography } from "@mui/material";
-import { GetStaticProps, NextPage } from "next"
+import { NextPage } from "next"
 import { useRouter } from "next/router";
-import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import store from "../redux/store";
-import { logoutUser, selectUser } from "../redux/UserSlice";
+import { logoutUser } from "../store/user/UserActions";
 
 
 const Home: NextPage = () => {
 
-    const user = useSelector(selectUser);
+    const user = useSelector((state: any) => state.user);
 	const dispatch = useDispatch();
 	const router = useRouter();
 

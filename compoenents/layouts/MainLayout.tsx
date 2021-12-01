@@ -1,16 +1,14 @@
 import { Alert } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { selectUser, setOnlineStatus } from "../../redux/UserSlice";
-import Redirect from "../molecules/Redirect";
-import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { setOnlineStatus } from "../../store/user/UserActions";
 import { RouteGuard } from "../molecules/RouteGuard";
+import Link from "next/link";
 
 const MainLayout: React.FC = (props) => {
 
     const dispatch = useDispatch();
     const [ alert, setAlert ] = useState(false);
-    const user = useSelector(selectUser);
 
     const handleOffline = () => {
         dispatch(setOnlineStatus(false));

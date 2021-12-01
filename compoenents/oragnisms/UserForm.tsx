@@ -2,7 +2,7 @@ import { Button, TextField } from "@mui/material";
 import { useRouter } from "next/router";
 import { Controller, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { setUser } from "../../redux/UserSlice";
+import { setUser } from "../../store/user/UserActions";
 
 const requiredRule = {
     required: "This field is required"
@@ -46,7 +46,7 @@ const UserForm: React.FC = () => {
                     <TextField 
                         value={field.value}
                         onChange={field.onChange}
-                        placeholder="Username"
+                        label="Username"
                         error={Boolean(fieldState.error)}
                         helperText={fieldState.error?.message}
                         variant="outlined"
@@ -63,7 +63,7 @@ const UserForm: React.FC = () => {
                         type="email"
                         value={field.value}
                         onChange={field.onChange}
-                        placeholder="Email address"
+                        label="Email address"
                         error={Boolean(fieldState.error)}
                         helperText={fieldState.error?.message}
                         variant="outlined"

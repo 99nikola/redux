@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
-import { selectUser } from '../../redux/UserSlice';
 
 export { RouteGuard };
 
@@ -9,7 +8,7 @@ const RouteGuard: React.FC = (props) => {
 
     const router = useRouter();
     const [ authorized, setAuthorized ] = useState(false);
-    const user = useSelector(selectUser);
+    const user = useSelector((state: any) => state.user);
 
     const checkAuth = useCallback((url: string) => {
         const publicPaths = ["/login"];
