@@ -1,4 +1,4 @@
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { useRouter } from "next/router";
 import { Controller, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -71,7 +71,9 @@ const UserForm: React.FC = () => {
                 )}
             />
 
-            <input type="submit" />
+            <Button type="submit" variant="contained">
+                Submit
+            </Button>
         </form>
     );
 }
