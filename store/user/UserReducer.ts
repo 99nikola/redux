@@ -1,7 +1,7 @@
 import { AnyAction } from "redux";
 import { EUserActions, initialState } from "./UserActions";
 
-export const UserReducer = (state: Record<any, any> = initialState, action: AnyAction) => {
+export const UserReducer = (state = initialState, action: AnyAction) => {
     switch (action.type) {
         case EUserActions.SET_USER:
             return ({
