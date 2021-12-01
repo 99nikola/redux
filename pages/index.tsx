@@ -2,7 +2,7 @@ import { Button, Typography } from "@mui/material";
 import { NextPage } from "next"
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { setProduct } from "../store/product/ProductActions";
+import { fetchProduct, setProduct } from "../store/product/ProductActions";
 import { logoutUser } from "../store/user/UserActions";
 
 
@@ -19,10 +19,11 @@ const Home: NextPage = () => {
 	}
 
     const handleLoadProduct = () => {
-        dispatch(setProduct({
-            name: "Product Name",
-            price: 99.99
-        }));
+        // dispatch(setProduct({
+        //     name: "Product Name",
+        //     price: 99.99
+        // }));
+        dispatch(fetchProduct());
     }
 
     return (
